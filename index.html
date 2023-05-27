@@ -14,14 +14,15 @@
             font-size: 30px;
             font-weight: bold;
         }
-        #player {
+        #video-only {
             margin-top: 20px;
         }
-        video {
-            width: 560px;
-            height: 315px;
-        }
     </style>
+    <link href="/js/web_modules/tailwindcss/dist/tailwind.min.css" rel="stylesheet" />
+    <link href="/js/web_modules/videojs/video-js.min.css" rel="stylesheet"/>
+    <link href="/js/web_modules/@videojs/themes/fantasy/index.css" rel="stylesheet" />
+    <link href="/styles/video.css" rel="stylesheet" />
+    <link href="/styles/video-only.css" rel="stylesheet" />
 </head>
 <body>
     <div id="logo">
@@ -30,17 +31,15 @@
     <div id="title">
         <h1>¡Bienvenido a LQSA 24H!</h1>
     </div>
-    <div id="player">
-        <video controls>
-            <source src="https://cdn7.lqsa.es/index-video-only.html" type="video/mp4">
-            Tu navegador no admite el elemento de video.
-        </video>
-    </div>
+    <div id="video-only"></div>
 
-    <!-- Aquí puedes agregar más contenido, juegos y otras secciones para los fans -->
+    <script type="module">
+        import { h, render } from '/js/web_modules/preact.js';
+        import htm from '/js/web_modules/htm.js';
+        const html = htm.bind(h);
 
-    <script>
-        // Aquí puedes agregar tu código JavaScript si necesitas realizar alguna interacción adicional
+        import VideoOnly from '/js/app-video-only.js';
+        render(html`<${VideoOnly} />`, document.getElementById("video-only"));
     </script>
 </body>
 </html>
