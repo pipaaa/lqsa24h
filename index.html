@@ -2,6 +2,8 @@
 <html>
 <head>
     <title>LQSA 24H</title>
+    <link href="https://vjs.zencdn.net/7.15.4/video-js.css" rel="stylesheet">
+    <script src="https://vjs.zencdn.net/7.15.4/video.js"></script>
     <style>
         body {
             text-align: center;
@@ -14,7 +16,7 @@
             font-size: 30px;
             font-weight: bold;
         }
-        #video-link {
+        #video-player {
             margin-top: 20px;
         }
     </style>
@@ -26,14 +28,14 @@
     <div id="title">
         <h1>¡Bienvenido a LQSA 24H!</h1>
     </div>
-    <div id="video-link">
-        <a href="https://cdn7.lqsa.es/index-video-only.html" target="_blank">Haz clic aquí para ver el video</a>
+    <div id="video-player">
+        <video id="my-video" class="video-js vjs-default-skin" controls preload="auto" width="640" height="264">
+            <source src="https://cdn7.lqsa.es/index-video-only.html" type="video/mp4">
+        </video>
     </div>
 
-    <!-- Aquí puedes agregar más contenido, juegos y otras secciones para los fans -->
-
     <script>
-        // Aquí puedes agregar tu código JavaScript si necesitas realizar alguna interacción adicional
+        var player = videojs('my-video');
     </script>
 </body>
 </html>
